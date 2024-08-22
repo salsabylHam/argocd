@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astonvilla
+spec:
+  replicas: 3  # Ajoutez le nombre de réplicas
+  selector:
+    matchLabels:
+      app: astonvilla
+  template:
+    metadata:
+      labels:
+        app: astonvilla
+    spec:
+      containers:
+      - name: astonvilla
+        image: salsabilhamraoui510802/projet:1.1.6
+        ports:
+        - containerPort: 80  # Assurez-vous que ce port correspond à ce qui est exposé par le Service
